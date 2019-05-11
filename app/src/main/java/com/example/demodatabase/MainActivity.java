@@ -4,7 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -12,6 +14,9 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     Button btnInsert,btnGetTasks;
     TextView tvResults;
+    ListView lv;
+    ArrayAdapter aa;
+    ArrayList<Task> task;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
         btnInsert=findViewById(R.id.buttonInsert);
         btnGetTasks=findViewById(R.id.buttonGetTask);
         tvResults=findViewById(R.id.textViewResults);
+        lv=findViewById(R.id.ListView);
+
         btnInsert.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -51,6 +58,9 @@ public class MainActivity extends AppCompatActivity {
                 tvResults.setText(txt);
             }
         });
+
+        task=new ArrayList<Task>();
+        task.add(new Task(" "));
 
 
     }
